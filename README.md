@@ -1,36 +1,207 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# User Management App
 
-## Getting Started
+A simple full-stack user management application built with Next.js, Express.js, and HeroUI.
 
-First, run the development server:
+This project allows users to:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* view all users
+* add a new user using a form
+* redirect to the users page after successful submission
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* Next.js
+* React
+* HeroUI
+
+### Backend
+
+* Node.js
+* Express.js
+* CORS
+
+---
+
+## Features
+
+* Fetch user data from backend API
+* Submit new user data using a form
+* Display user list in a responsive grid
+* Redirect after successful form submission
+* Simple REST API integration
+
+---
+
+## Project Structure
+
+```bash id="9pr6kc"
+project-root/
+│
+├── client/
+│   ├── app/
+│   │   ├── users/
+│   │   │   └── page.jsx
+│   │   └── new/
+│   │       └── page.jsx
+│   │
+│   └── components/
+│
+├── server/
+│   ├── index.js
+│   └── package.json
+│
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Clone the repository
 
-## Learn More
+```bash id="n6jzlh"
+git clone https://github.com/your-username/your-repository-name.git
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Go to the project folder
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash id="s6d4qa"
+cd your-repository-name
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Backend Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Go to the server folder:
+
+```bash id="lr6y8z"
+cd server
+```
+
+Install dependencies:
+
+```bash id="ln8s4c"
+npm install
+```
+
+Start the backend server:
+
+```bash id="8zjlwm"
+node index.js
+```
+
+The server will run at:
+
+```bash id="xy1n6t"
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
+
+Open a new terminal and go to the client folder:
+
+```bash id="e3qg2u"
+cd client
+```
+
+Install dependencies:
+
+```bash id="w9x4bd"
+npm install
+```
+
+Run the frontend:
+
+```bash id="w5pn2f"
+npm run dev
+```
+
+Frontend will run at:
+
+```bash id="4hcm7e"
+http://localhost:3000
+```
+
+---
+
+## API Endpoints
+
+### GET `/user`
+
+Returns all users.
+
+Example response:
+
+```json id="2bjlwm"
+[
+  {
+    "id": 1,
+    "name": "Rahim",
+    "email": "rahim@example.com"
+  }
+]
+```
+
+---
+
+### POST `/user`
+
+Creates a new user.
+
+Request body:
+
+```json id="g9a4uq"
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+
+Response:
+
+```json id="o3qjlwm"
+{
+  "success": true,
+  "message": "post method is working",
+  "data": {
+    "id": 5,
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+}
+```
+
+---
+
+## Pages
+
+### `/users`
+
+Displays all users from the API.
+
+### `/new`
+
+Provides a form to create a new user.
+
+---
+
+## Notes
+
+* User data is currently stored in memory.
+* Restarting the backend server resets the data.
+* This project is suitable for learning API requests, form handling, and basic full-stack integration.
+
+---
+
+## Author
+
+Md Rahim Sikdar
