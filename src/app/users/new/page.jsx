@@ -12,13 +12,26 @@ import {
     TextArea,
     TextField,
 } from "@heroui/react";
+import { redirect } from "next/navigation";
+// import { redirect } from "next/dist/server/api-utils";
 
 const NewPage = () => {
-    const onSubmit = (e)=>{
+    const onSubmit =async (e)=>{
         e.preventDefault()
         const formData = new FormData(e.target)
         const user = Object.fromEntries(formData)
         console.log(user)
+        const req = await fetch('http://localhost:5000/user',{
+            method:'post',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(user)
+
+        })
+        const res = await req.json()
+        // console.log('data:',data)
+        if(res.success){
+            redirect('/users')
+        }
     }
     return (
         <div>
